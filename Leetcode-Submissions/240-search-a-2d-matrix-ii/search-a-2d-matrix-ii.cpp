@@ -1,24 +1,14 @@
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
-
-        int row = 0;
-        int col = matrix[0].size() - 1;
-
-        while (row < matrix.size() && col >= 0) {
-
-            if (matrix[row][col] == target) {
+        int m = matrix.size(), n = m ? matrix[0].size() : 0, r = 0, c = n - 1;
+        while (r < m && c >= 0) {
+            if (matrix[r][c] == target) {
                 return true;
             }
-
-            if (matrix[row][col] > target) {
-                col--;
-            }
-            else {
-                row++;
-            }
+            // Apply ternary Operator
+            matrix[r][c] > target ? c-- : r++;
         }
-
         return false;
     }
 };
