@@ -36,7 +36,7 @@ public:
 
         vector<bool> isPrime(right - left + 1, true);
 
-        // 1 is not prime
+   
         if (left == 1) {
             isPrime[0] = false;
         }
@@ -47,7 +47,6 @@ public:
 
             int start = ((left + p - 1) / p) * p;
 
-            // Don't mark the prime itself
             if (start == p) {
                 start += p;
             }
